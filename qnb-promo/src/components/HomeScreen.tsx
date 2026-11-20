@@ -109,11 +109,11 @@ const QuickSection: React.FC<{ offset: number }> = ({ offset }) => {
         style={{
           position: "absolute",
           left: 16,
-          right: 0,
+          right: 16,
           top: (377 - y0) / 2,
           height: (594 - 377) / 2,
           background: "#F2F5F9",
-          borderRadius: "10px 0 0 10px",
+          borderRadius: 10,
           overflow: "hidden",
         }}
       >

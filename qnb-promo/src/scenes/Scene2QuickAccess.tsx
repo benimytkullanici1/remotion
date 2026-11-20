@@ -23,7 +23,7 @@ const k = (f: number, i: number[], o: number[], e = ease) =>
 const QUICK_Y = HEADER_H + 72.5 + 4.5;
 const QUICK_H = 108.5;
 const QUICK_MID = QUICK_Y + QUICK_H / 2;
-const MAX_OFFSET = 216;
+const MAX_OFFSET = 232; // last tile ends 12px inside the panel (same padding as the left side)
 
 const PartA: React.FC = () => {
   const f = useCurrentFrame();
@@ -31,7 +31,7 @@ const PartA: React.FC = () => {
   const offset = k(f, [75, 150], [0, MAX_OFFSET]);
   // touch: swipe from right to left, then tap "+ Ekle/Çıkar"
   const swipeX = k(f, [75, 150], [330, 330 - MAX_OFFSET]);
-  const tapX = 343;
+  const tapX = 324;
   const touchX = f < 160 ? swipeX : k(f, [160, 185], [swipeX, tapX], easeOut);
   const touchOpacity = k(f, [55, 68, 152, 162, 175, 186, 210, 222], [0, 1, 1, 0.0, 0, 1, 1, 0]);
   const touchX2 = f < 162 ? swipeX : tapX;
@@ -52,7 +52,7 @@ const PartA: React.FC = () => {
       }}
     >
       <HomeScreen quickOffset={offset} />
-      <Spotlight x={8} y={QUICK_Y - 5} w={400} h={QUICK_H + 10} amount={dim} />
+      <Spotlight x={11} y={QUICK_Y - 5} w={368} h={QUICK_H + 10} amount={dim} />
       <EditSheet progress={sheet} />
       <TouchDot
         x={touchX2}
