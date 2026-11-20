@@ -1,4 +1,5 @@
 import React from "react";
+import { Img, staticFile } from "remotion";
 import { Crop } from "./Crop";
 import { SCREEN_W } from "./Phone";
 
@@ -6,7 +7,9 @@ const SRC = "img/quick_edit_full.png";
 const W2 = 780;
 export const SHEET_H = 760;
 export const SHEET_CROP_TOP = 80; // skip the screenshot's status bar
-const BAR: [number, number] = [3090, 3272]; // floating Vazgeç / Kaydet bar
+// edit_fab_buttons.png is 716 x 156 (2x)
+const FAB_W = 716 / 2;
+const FAB_H = 156 / 2;
 
 // rows inside the screenshot (2x px), each includes its top divider
 export const ROW_KAREKOD: [number, number] = [704, 816];
@@ -78,14 +81,22 @@ export const EditSheet: React.FC<{
         />
         <Row row={ROW_AJANDA} m={ajanda} z={2} />
         <Row row={ROW_KAREKOD} m={karekod} z={3} />
-        {/* floating action bar */}
-        <Crop
-          src={SRC}
-          y0={BAR[0]}
-          y1={BAR[1]}
-          imgW={W2}
-          style={{ position: "absolute", left: 0, bottom: 0, zIndex: 5 }}
-        />
+        {/* floating action buttons (Vazgeç / Kaydet) */}
+        <div
+          style={{
+            position: "absolute",
+            left: (SCREEN_W - FAB_W) / 2,
+            bottom: 22,
+            width: FAB_W,
+            height: FAB_H,
+            zIndex: 5,
+            borderRadius: 13,
+            background: "#fff",
+            boxShadow: "0 8px 24px rgba(30,38,72,0.16), 0 1px 4px rgba(30,38,72,0.08)",
+          }}
+        >
+          <Img src={staticFile("img/edit_fab_buttons.png")} style={{ width: FAB_W, height: FAB_H, display: "block" }} />
+        </div>
       </div>
     </>
   );
