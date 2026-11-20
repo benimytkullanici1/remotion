@@ -21,9 +21,9 @@ export const Scene1Intro: React.FC = () => {
           x: k(frame, [0, 540], [400, 380]),
           y: 0,
           scale: k(frame, [0, 540], [1.02, 1.08]),
-          rx: k(frame, [0, 540], [7, 2]),
-          ry: k(frame, [0, 540], [-18, -6]),
-          rz: k(frame, [0, 540], [-1.5, 0.5]),
+          rx: 0,
+          ry: k(frame, [0, 540], [-12, 0]),
+          rz: 0,
         }}
         overlay={
           <>
