@@ -15,7 +15,7 @@ export const Caption: React.FC<{
   width?: number;
   top?: number;
   fade?: number;
-}> = ({ from, to, title, text, size = 64, left = 150, width = 720, top, fade = 18 }) => {
+}> = ({ from, to, title, text, size = 64, left = 150, width = 800, top, fade = 18 }) => {
   const frame = useCurrentFrame();
   const opacity = interpolate(frame, [from, from + fade, to - fade, to], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
@@ -47,11 +47,11 @@ export const Caption: React.FC<{
       }}
     >
       {title ? (
-        <div style={{ fontSize: size * 0.62, fontWeight: 800, color: ACCENT, letterSpacing: 0.5, marginBottom: 18 }}>
+        <div style={{ fontSize: size * 0.62, fontWeight: 700, color: ACCENT, letterSpacing: 0.5, marginBottom: 18 }}>
           {title}
         </div>
       ) : null}
-      <div style={{ fontSize: size, fontWeight: title ? 600 : 700, lineHeight: 1.15, letterSpacing: -0.5 }}>{text}</div>
+      <div style={{ fontSize: size, fontWeight: title ? 500 : 600, lineHeight: 1.15, letterSpacing: -0.5 }}>{text}</div>
     </div>
   );
 };

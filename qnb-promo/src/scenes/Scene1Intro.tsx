@@ -27,7 +27,7 @@ export const Scene1Intro: React.FC = () => {
         }}
         overlay={
           <>
-            <Caption from={8} to={118} text="The new QNB Mobil home page" size={84} />
+            <Caption from={8} to={118} text="The new QNB Mobil home page" size={84} width={880} />
             <Caption from={132} to={242} text="Built around the way you bank" />
             <Caption from={256} to={366} text="Personalised banking, from the first screen" />
             <Caption from={380} to={490} text="Everything you need, in one place" />
